@@ -3,17 +3,11 @@ using UnityEngine;
 
 public class HitZone : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     private Note incomingNote;
     public void OnTriggerEnter2D(Collider2D other)
     {
         incomingNote = other.gameObject.GetComponent<Note>();
-        if (incomingNote != null)
-        {
-            Debug.Log("Note Entered Hit Zone!");
-        }
-
-     
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -35,11 +29,12 @@ public class HitZone : MonoBehaviour
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame && incomingNote != null)
         {
+            gameManager.NoteRemoved();
             Destroy(incomingNote.gameObject);
             incomingNote = null;
             gameManager.AddPoint();
