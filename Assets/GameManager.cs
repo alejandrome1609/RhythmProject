@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //This is where most of the heavy lifting happens so im gonna try to explain quickly. These two are pretty much references assigned in the inspector to update the onscreen text as we know.
+    //This is where most of the heavy lifting happens with our timers,text,etc so im gonna try to explain quickly. These two are pretty much references assigned in the inspector to update the onscreen text as we know.
     public TMP_Text scoreText;
     public TMP_Text timerText;
     //Here I actually made the Notes a prefab so we can keep using them, this is just to tell the code the prefab it should copy. And below is another interesting variable where it will actually allow us to position our notes to spawn from there.
     public GameObject notePrefab;
     public Transform noteSpawnPoint;
-    //Here, this is just pretty much to tell the engine to start at 0 points, and to wait after one second to spawn a note.
+    //Here, this is just pretty much to tell the engine to start at 0 points, and to wait after one second to spawn a note. (Which actually you'll see later this would be kind of useless aside from spwaning the first note)
     private int score = 0;
     private float spawnTimer = 1f;
     //This allows notes to spawn for 30 seconds, why did I add a boolean variable? Because it will then help tell the game when notes should stop spawning, which should be after the roundtimer is over or at 0 in this case.
